@@ -1709,3 +1709,13 @@ li { list-style: none; }
    break between characters rather than overflow the card. */
 .dl-meta dt { white-space: nowrap; }
 .dl-meta dd.mono { word-break: break-all; font-size: 11.5px; line-height: 1.55; }
+
+/* Product families (three customer-facing families) */
+.family-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.family { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; text-decoration: none; color: inherit; transition: transform .35s var(--ease), border-color .35s var(--ease); }
+.family:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--c1, var(--teal)) 45%, var(--line)); }
+.family__img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-bottom: 1px solid var(--line); }
+.family__body { padding: 18px 20px 20px; }
+.family__name { margin: 0 0 8px; font-size: 19px; letter-spacing: -0.022em; }
+.family__text { margin: 0 0 12px; font-size: 14.5px; line-height: 1.55; color: var(--ink-faint); }
+.family__more { font-size: 13.5px; color: var(--teal); }
