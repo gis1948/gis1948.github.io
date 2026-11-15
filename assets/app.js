@@ -150,18 +150,44 @@
     if (hero && art) {
       hero.addEventListener("pointermove", function (event) {
         var rect = hero.getBoundingClientRect();
-        var nx = (event.clientX - rect.left) / rect.width - 0.5;
-        var ny = (event.clientY - rect.top) / rect.height - 0.5;
+        // Clamped: the pointer can leave the section between events (fast moves,
+        // a narrow viewport), and an unbounded ratio would swing the mark wild.
+        var nx = Math.max(-0.5, Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5));
+        var ny = Math.max(-0.5, Math.min(0.5, (event.clientY - rect.top) / rect.height - 0.5));
         hero.style.setProperty("--hx", ((nx + 0.5) * 100).toFixed(1) + "%");
         hero.style.setProperty("--hy", ((ny + 0.5) * 100).toFixed(1) + "%");
         art.style.setProperty("--tx", (nx * 22).toFixed(1) + "px");
         art.style.setProperty("--ty", (ny * 18).toFixed(1) + "px");
+        art.style.setProperty("--ary", (nx * 9).toFixed(2) + "deg");
+        art.style.setProperty("--arx", (-ny * 7).toFixed(2) + "deg");
       });
       hero.addEventListener("pointerleave", function () {
         art.style.setProperty("--tx", "0px");
         art.style.setProperty("--ty", "0px");
+        art.style.setProperty("--ary", "0deg");
+        art.style.setProperty("--arx", "0deg");
       });
     }
+
+    // One soft light that trails the cursor across the whole page. It is purely
+    // additive and sits behind the content, so text contrast is unchanged.
+    var light = document.createElement("div");
+    light.className = "cursor-light";
+    light.setAttribute("aria-hidden", "true");
+    document.body.appendChild(light);
+    // Written straight from the event rather than through requestAnimationFrame:
+    // browsers already coalesce pointermove to the frame rate, and a queued
+    // frame can be skipped entirely in a background tab, leaving the light
+    // parked at 0,0 once the page is shown again.
+    document.addEventListener("pointermove", function (event) {
+      if (event.pointerType !== "mouse") return;
+      light.style.transform =
+        "translate3d(" + event.clientX + "px," + event.clientY + "px,0)";
+      if (!light.classList.contains("is-on")) light.classList.add("is-on");
+    }, { passive: true });
+    document.addEventListener("pointerleave", function () {
+      light.classList.remove("is-on");
+    });
 
     // Buttons lean very slightly toward the cursor
     document.querySelectorAll(".btn").forEach(function (btn) {
