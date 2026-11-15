@@ -1302,7 +1302,10 @@ li { list-style: none; }
    print, and in any capture that runs before the observer fires. The
    animation is added only when an element enters the viewport. */
 
-.reveal.is-in { animation: rise 0.7s var(--ease) both; }
+/* No fill-mode: a finished animation must not keep pinning opacity/transform,
+   otherwise the cursor tilt can never apply. Content is visible by default, so
+   there is nothing to hold in place once the 0.7s rise is over. */
+.reveal.is-in { animation: rise 0.7s var(--ease); }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(16px); }
@@ -1401,4 +1404,191 @@ li { list-style: none; }
 @media print {
   body::before, body::after, .site-head, .site-foot, .cta { display: none; }
   body { color: #111; background: #fff; }
+}
+
+/* --------------------------------------------------------- interaction layer
+   Additive decoration only. Every effect below assumes a page that is already
+   complete without it; `.has-pointer` is set by app.js only for fine pointers,
+   and the reduced-motion block earlier in this file cancels animations and
+   transitions with !important, so nothing moves for visitors who ask it not to. */
+
+.card,
+.dl-card,
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.card,
+.dl-card {
+  transition: transform 0.4s var(--ease), border-color 0.3s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+/* cursor light */
+
+[data-glow]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--c2, var(--teal)) 34%, transparent),
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+}
+
+.has-pointer [data-glow]:hover::after { opacity: 0.62; }
+
+/* the lean */
+
+.has-pointer .card[data-glow]:hover,
+.has-pointer .dl-card[data-glow]:hover {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateY(-6px) scale(1.006);
+  border-color: color-mix(in srgb, var(--c2, var(--teal)) 52%, var(--line-strong));
+  box-shadow: 0 28px 60px -34px rgba(0, 0, 0, 0.9),
+    0 0 0 1px color-mix(in srgb, var(--c2, var(--teal)) 18%, transparent);
+}
+
+/* product marks breathe, and answer the cursor */
+
+.card__mark {
+  transition: transform 0.55s var(--ease), filter 0.55s var(--ease);
+}
+
+@keyframes markBreath {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  50% { filter: drop-shadow(0 0 13px color-mix(in srgb, var(--c2, var(--teal)) 38%, transparent)); }
+}
+
+.has-pointer .card__mark {
+  animation: markBreath 7s ease-in-out infinite;
+}
+.has-pointer .card:nth-child(2n) .card__mark { animation-delay: -2.4s; }
+.has-pointer .card:nth-child(3n) .card__mark { animation-delay: -4.6s; }
+.has-pointer .card:hover .card__mark {
+  transform: rotate(90deg) scale(1.07);
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--c2, var(--teal)) 55%, transparent));
+}
+
+.card__more { transition: color 0.3s var(--ease); }
+.card__more span { display: inline-block; transition: transform 0.35s var(--ease); }
+.card:hover .card__more { color: var(--ink); }
+.card:hover .card__more span { transform: translateX(6px); }
+
+/* buttons: sheen sweep, magnetic lean, press */
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.34) 48%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease);
+}
+
+.has-pointer .btn:hover::after { transform: translateX(130%); }
+
+.has-pointer .btn {
+  transform: translate3d(var(--bdx, 0px), calc(var(--bdy, 0px) - 2px), 0);
+}
+
+.has-pointer .btn--ghost:hover { background: rgba(47, 212, 192, 0.09); }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 68%);
+  animation: rippleOut 0.62s var(--ease) forwards;
+}
+
+@keyframes rippleOut {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* hero: light follows the cursor, the art drifts the other way */
+
+.hero { position: relative; }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -12% -6%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+  background: radial-gradient(
+    620px circle at var(--hx, 50%) var(--hy, 42%),
+    rgba(47, 212, 192, 0.17),
+    transparent 64%
+  );
+}
+
+.has-pointer .hero:hover::after { opacity: 1; }
+
+.hero__art {
+  transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0);
+  transition: transform 0.4s var(--ease);
+}
+
+.hero__rings { transition: transform 0.6s var(--ease); }
+.has-pointer .hero:hover .hero__rings { transform: rotateX(7deg) rotateY(-7deg); }
+
+.hero__mark { transition: filter 0.6s var(--ease); }
+.has-pointer .hero:hover .hero__mark {
+  filter: drop-shadow(0 26px 70px rgba(47, 212, 192, 0.38));
+}
+
+/* navigation: the underline grows out of the word */
+
+.site-nav a { position: relative; }
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s var(--ease);
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* reading progress */
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 80;
+  pointer-events: none;
+  transform: scaleX(var(--p, 0));
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  opacity: 0.85;
+}
+
+@media print {
+  .scroll-progress { display: none; }
+  [data-glow]::after,
+  .btn::after { display: none; }
 }

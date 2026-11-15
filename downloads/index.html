@@ -56,7 +56,7 @@
   <div class="wrap">
     <p class="eyebrow">Free Downloads</p>
     <h1>Free software, released only when it is safe to hand over.</h1>
-    <p class="page-head__lede">Everything free from Jusoor will live here: installers, packages, release notes, requirements and a SHA-256 checksum for every file. One product is open for download today; the rest stay listed with the reason they are not, so this page is a ledger you can trust rather than a sales page.</p>
+    <p class="page-head__lede">Everything free from Jusoor will live here: installers, packages, release notes, requirements and a SHA-256 checksum for every file. Nothing is offered until its licence, integrity and readiness are settled &mdash; so today this page is a release ledger, not a download page.</p>
   </div>
 </section>
 
@@ -65,8 +65,8 @@
     <div class="gate" role="note">
       <div class="gate__icon" aria-hidden="true"></div>
       <div>
-        <h2 class="gate__title">GisWind 1.0.9 is available for Windows</h2>
-        <p>One build has cleared the gates. GisWind 1.0.9 is self-contained, so it needs no .NET installation; the package carries its licence, third-party notices and a README, and its SHA-256 is published here and in the release notes. It is not code-signed, so Windows SmartScreen asks for confirmation on first run &mdash; the card says so instead of hiding it. Every other build stays listed below with the reason it is not offered.</p>
+        <h2 class="gate__title">No public download is open yet</h2>
+        <p>Six builds exist across the family. None of them clears all four release gates &mdash; licence, rights, integrity, readiness &mdash; so none is offered. When one does, its card gains a real download button, a checksum you can verify and release notes, and this notice changes.</p>
       </div>
     </div>
 
@@ -76,8 +76,8 @@
         <p>A free edition can still have a proprietary installer, bundled third-party components, or a licence that does not grant redistribution. Each of those is checked before a file is listed.</p>
       </article>
       <article class="policy__item">
-        <h3>Unsigned, and said out loud</h3>
-        <p>GisWind 1.0.9 has no code-signing certificate, so Windows shows a SmartScreen warning the first time it runs. Rather than pretend otherwise, its card states that and publishes the SHA-256, so you can check the bytes you received against the hash in the release notes. A signed build is still the goal.</p>
+        <h3>Nothing unsigned</h3>
+        <p>An installer that Windows cannot verify is a security problem for the person running it. Unsigned builds stay off this page, even when they work.</p>
       </article>
       <article class="policy__item">
         <h3>Checksums you can check</h3>
@@ -142,18 +142,18 @@
 </article><article class="dl-card" data-platform="windows">
   <div class="dl-card__top">
     <h2 class="dl-card__name">GisWind</h2>
-    <span class="pill pill--pre"><span class="pill__dot" aria-hidden="true"></span>Available</span>
+    <span class="pill pill--dev"><span class="pill__dot" aria-hidden="true"></span>Rights unverified</span>
   </div>
-  <p class="dl-card__platform">Windows 10 1809 or newer &middot; 64-bit</p>
+  <p class="dl-card__platform">Windows</p>
   <dl class="dl-meta">
-    <div><dt>Version</dt><dd>1.0.9 portable, self-contained</dd></div>
-    <div><dt>Size</dt><dd>216.8 MB (ZIP)</dd></div>
-    <div><dt>SHA-256</dt><dd class="mono">7dac61fd&hellip;e31054b8</dd></div>
+    <div><dt>Version</dt><dd>1.0.6 portable</dd></div>
+    <div><dt>Size</dt><dd>200.4 MB (ZIP)</dd></div>
+    <div><dt>SHA-256</dt><dd class="mono">ac9bce96&hellip;e1857</dd></div>
   </dl>
-  <p class="dl-card__why">Self-contained: no .NET installation, no runtime prompt. Extract the ZIP and run GISIptvWindows.exe; settings, database and logs stay in %LOCALAPPDATA%\Giswind and survive upgrades. Ships with LICENSE, THIRD-PARTY-NOTICES (libVLC, LGPL-2.1) and README-FIRST. Not code-signed, so SmartScreen asks once.</p>
+  <p class="dl-card__why">A portable ZIP exists and hashes cleanly, but it is unsigned, there is no installer, and the tree carries no licence granting redistribution.</p>
   <div class="dl-card__actions">
-    <a class="btn btn--solid" href="https://github.com/gis1948/giswind-updates/releases/download/v1.0.9/GISIptvWindows-portable-1.0.9.zip">Download 1.0.9 (ZIP)</a>
-    <a class="dl-link" href="https://github.com/gis1948/giswind-updates/releases/tag/v1.0.9">Release notes and checksum</a>
+    <span class="dl-off">Download unavailable</span>
+    <a class="dl-link" href="/products/giswind/">Product page</a>
   </div>
 </article><article class="dl-card" data-platform="android">
   <div class="dl-card__top">
@@ -189,7 +189,7 @@
   </div>
 </article>
     </div>
-    <p class="footnote">SHA-256 values are shown only for files whose bytes were hashed during this review. A hash is evidence of integrity, not by itself a download permission: only the GisWind 1.0.9 card links to a published file.</p>
+    <p class="footnote">SHA-256 values are shown only for files whose bytes were hashed during this review. A hash on this page is evidence of integrity, not a download permission.</p>
   </div>
 </section>
 
@@ -217,8 +217,7 @@
         <tbody>
           <tr><td>GisCode Core</td><td>Apache-2.0, recorded in LICENSE, NOTICE and TRADEMARK</td><td>No &mdash; unsigned, legal review and security route outstanding</td></tr>
           <tr><td>GisCode Pro</td><td>Proprietary, private tree</td><td>No &mdash; not distributed</td></tr>
-          <tr><td>GisWind (GisTV family, Windows)</td><td>Proprietary freeware LICENSE plus LGPL-2.1 notices for bundled libVLC, both inside the 1.0.9 package</td><td>Yes &mdash; unsigned, published on the release page</td></tr>
-          <tr><td>GisTV for Android TV, GisTvm, iOS</td><td>No LICENSE or EULA in the transferred tree</td><td>No &mdash; rights unverified</td></tr>
+          <tr><td>GisTV family</td><td>No LICENSE or EULA in the transferred tree</td><td>No &mdash; rights unverified</td></tr>
           <tr><td>Sarah</td><td>Proprietary, private</td><td>No &mdash; private project</td></tr>
           <tr><td>Jusoor</td><td>Not recorded in the project files</td><td>No &mdash; backend integration outstanding</td></tr>
           <tr><td>GisPM, GisCAD, GisVideo, GisImage</td><td>Not established</td><td>No &mdash; no build exists</td></tr>
