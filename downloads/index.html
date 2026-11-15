@@ -34,7 +34,8 @@
           <stop offset="0%" stop-color="#2FD4C0"/><stop offset="100%" stop-color="#D3A75C"/>
         </linearGradient>
       </defs>
-      <polygon points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="url(#g-brand-logo)" stroke-width="5" stroke-linejoin="round"/>
+      <polygon class="mark__line" pathLength="1" points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="url(#g-brand-logo)" stroke-width="5" stroke-linejoin="round"/>
+      <polygon class="mark__pulse" pathLength="1" points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="#eafffb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="4.5" fill="#D3A75C"/>
     </svg>
       <span class="brand__text">Jusoor<span class="brand__ai">AI</span></span>
@@ -56,7 +57,7 @@
   <div class="wrap">
     <p class="eyebrow">Free Downloads</p>
     <h1>Free software, released only when it is safe to hand over.</h1>
-    <p class="page-head__lede">Everything free from Jusoor will live here: installers, packages, release notes, requirements and a SHA-256 checksum for every file. One product is open for download today; the rest stay listed with the reason they are not, so this page is a ledger you can trust rather than a sales page.</p>
+    <p class="page-head__lede">Everything free from Jusoor lives here: packages, release notes, requirements and a SHA-256 checksum for every file. Two builds are open today &mdash; GisWind 1.0.9 for Windows and GisCode Core 0.1.0-alpha.1 &mdash; and the rest stay listed with the reason they are not, so this is a ledger you can trust rather than a sales page.</p>
   </div>
 </section>
 
@@ -65,8 +66,8 @@
     <div class="gate" role="note">
       <div class="gate__icon" aria-hidden="true"></div>
       <div>
-        <h2 class="gate__title">GisWind 1.0.9 is available for Windows</h2>
-        <p>One build has cleared the gates. GisWind 1.0.9 is self-contained, so it needs no .NET installation; the package carries its licence, third-party notices and a README, and its SHA-256 is published here and in the release notes. It is not code-signed, so Windows SmartScreen asks for confirmation on first run &mdash; the card says so instead of hiding it. Every other build stays listed below with the reason it is not offered.</p>
+        <h2 class="gate__title">Two builds are open: GisWind 1.0.9 and GisCode Core 0.1.0-alpha.1</h2>
+        <p>Both clear the gates the owner set for them. <strong>GisWind 1.0.9</strong> is self-contained, needs no .NET installation, and ships its LICENSE, THIRD-PARTY-NOTICES and README. <strong>GisCode Core 0.1.0-alpha.1</strong> is Apache-2.0, with LICENSE, NOTICE and TRADEMARK shipped beside the binary. Both publish their size and SHA-256 below and in their release notes. Neither is code-signed, so Windows SmartScreen asks for confirmation on first run &mdash; the cards say so rather than hiding it, and the checksum is how you verify the bytes instead. Every other build stays listed below with the reason it is not offered.</p>
       </div>
     </div>
 
@@ -77,7 +78,7 @@
       </article>
       <article class="policy__item">
         <h3>Unsigned, and said out loud</h3>
-        <p>GisWind 1.0.9 has no code-signing certificate, so Windows shows a SmartScreen warning the first time it runs. Rather than pretend otherwise, its card states that and publishes the SHA-256, so you can check the bytes you received against the hash in the release notes. A signed build is still the goal.</p>
+        <p>Neither published build has a code-signing certificate, so Windows shows a SmartScreen warning the first time it runs. Rather than pretend otherwise, each card states that and publishes its SHA-256, so you can check the bytes you received against the hash in the release notes. A signed build is still the goal.</p>
       </article>
       <article class="policy__item">
         <h3>Checksums you can check</h3>
@@ -94,17 +95,17 @@
       <article class="dl-card" data-platform="windows">
   <div class="dl-card__top">
     <h2 class="dl-card__name">GisCode Core</h2>
-    <span class="pill pill--dev"><span class="pill__dot" aria-hidden="true"></span>Pending release</span>
+    <span class="pill pill--alpha"><span class="pill__dot" aria-hidden="true"></span>Early alpha</span>
   </div>
   <p class="dl-card__platform">Windows</p>
   <dl class="dl-meta">
-    <div><dt>Version</dt><dd>0.1.1 (draft)</dd></div>
-    <div><dt>Size</dt><dd>42.1 MB installer &middot; 31.0 MB portable</dd></div>
-    <div><dt>SHA-256</dt><dd class="mono">recorded, not published</dd></div>
+    <div><dt>Version</dt><dd>0.1.0-alpha.1</dd></div>
+    <div><dt>Size</dt><dd>73.2 MB (single .exe)</dd></div>
+    <div><dt>SHA-256</dt><dd class="mono">114aab0e970b1e5920cc26f55ca6a75675c379ee5c7d043c6611e2ae7ef82d94</dd></div>
   </dl>
-  <p class="dl-card__why">The build is unsigned and the release chain is open: a legal review of the Apache-2.0 decision, a verified vulnerability-reporting route, and a download page that can only exist after publication. Publication is not authorised.</p>
+  <p class="dl-card__why">Unsigned: Windows SmartScreen will warn on first run, and there is no installer or auto-update. Verify the hash below before running it. Apache-2.0, with LICENSE, NOTICE and TRADEMARK shipped beside the binary. Needs a local model or an API key - without one it opens and cannot work.</p>
   <div class="dl-card__actions">
-    <span class="dl-off">Download unavailable</span>
+    <a class="btn btn--solid dl-btn" href="https://github.com/gis1948/giscode-core-releases/releases/download/v0.1.0-alpha.1/GisCode.exe" rel="noopener">Download .exe &middot; 73.2 MB</a><a class="dl-link" href="https://github.com/gis1948/giscode-core-releases/releases/download/v0.1.0-alpha.1/SHA256SUMS.txt" rel="noopener">SHA256SUMS.txt</a>
     <a class="dl-link" href="/products/giscode-core/">Product page</a>
   </div>
 </article><article class="dl-card" data-platform="windows">
@@ -152,8 +153,8 @@
   </dl>
   <p class="dl-card__why">Self-contained: no .NET installation, no runtime prompt. Extract the ZIP and run GISIptvWindows.exe; settings, database and logs stay in %LOCALAPPDATA%\Giswind and survive upgrades. Ships with LICENSE, THIRD-PARTY-NOTICES (libVLC, LGPL-2.1) and README-FIRST. Not code-signed, so SmartScreen asks once.</p>
   <div class="dl-card__actions">
-    <a class="btn btn--solid" href="https://github.com/gis1948/giswind-updates/releases/download/v1.0.9/GISIptvWindows-portable-1.0.9.zip">Download 1.0.9 (ZIP)</a>
-    <a class="dl-link" href="https://github.com/gis1948/giswind-updates/releases/tag/v1.0.9">Release notes and checksum</a>
+    <a class="btn btn--solid dl-btn" href="https://github.com/gis1948/giswind-updates/releases/download/v1.0.9/GISIptvWindows-portable-1.0.9.zip" rel="noopener">Download 1.0.9 (ZIP)</a><a class="dl-link" href="https://github.com/gis1948/giswind-updates/releases/tag/v1.0.9" rel="noopener">Release notes and checksum</a>
+    <a class="dl-link" href="/products/giswind/">Product page</a>
   </div>
 </article><article class="dl-card" data-platform="android">
   <div class="dl-card__top">
@@ -189,7 +190,7 @@
   </div>
 </article>
     </div>
-    <p class="footnote">SHA-256 values are shown only for files whose bytes were hashed during this review. A hash is evidence of integrity, not by itself a download permission: only the GisWind 1.0.9 card links to a published file.</p>
+    <p class="footnote">A published file lives in a GitHub release with its licence files and a <code>SHA256SUMS.txt</code>. A hash proves the bytes arrived intact; it does not prove who built them &mdash; that is what a code signature would do, and GisCode Core does not have one yet.</p>
   </div>
 </section>
 
@@ -215,10 +216,9 @@
       <table class="licence-table">
         <thead><tr><th scope="col">Product</th><th scope="col">Code licence</th><th scope="col">Binary distribution</th></tr></thead>
         <tbody>
-          <tr><td>GisCode Core</td><td>Apache-2.0, recorded in LICENSE, NOTICE and TRADEMARK</td><td>No &mdash; unsigned, legal review and security route outstanding</td></tr>
+          <tr><td>GisCode Core</td><td>Apache-2.0, recorded in LICENSE, NOTICE and TRADEMARK</td><td>Yes &mdash; v0.1.0-alpha.1, unsigned (SmartScreen warns)</td></tr>
           <tr><td>GisCode Pro</td><td>Proprietary, private tree</td><td>No &mdash; not distributed</td></tr>
-          <tr><td>GisWind (GisTV family, Windows)</td><td>Proprietary freeware LICENSE plus LGPL-2.1 notices for bundled libVLC, both inside the 1.0.9 package</td><td>Yes &mdash; unsigned, published on the release page</td></tr>
-          <tr><td>GisTV for Android TV, GisTvm, iOS</td><td>No LICENSE or EULA in the transferred tree</td><td>No &mdash; rights unverified</td></tr>
+          <tr><td>GisTV family</td><td>No LICENSE or EULA in the transferred tree</td><td>Partial &mdash; GisWind 1.0.9 ships its own licence and notices; the TV, Android and iOS clients stay unpublished</td></tr>
           <tr><td>Sarah</td><td>Proprietary, private</td><td>No &mdash; private project</td></tr>
           <tr><td>Jusoor</td><td>Not recorded in the project files</td><td>No &mdash; backend integration outstanding</td></tr>
           <tr><td>GisPM, GisCAD, GisVideo, GisImage</td><td>Not established</td><td>No &mdash; no build exists</td></tr>
@@ -249,7 +249,8 @@
           <stop offset="0%" stop-color="#2FD4C0"/><stop offset="100%" stop-color="#D3A75C"/>
         </linearGradient>
       </defs>
-      <polygon points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="url(#g-foot-logo)" stroke-width="5" stroke-linejoin="round"/>
+      <polygon class="mark__line" pathLength="1" points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="url(#g-foot-logo)" stroke-width="5" stroke-linejoin="round"/>
+      <polygon class="mark__pulse" pathLength="1" points="150,50 179.29,79.29 220.71,79.29 220.71,120.71 250,150 220.71,179.29 220.71,220.71 179.29,220.71 150,250 120.71,220.71 79.29,220.71 79.29,179.29 50,150 79.29,120.71 79.29,79.29 120.71,79.29" fill="none" stroke="#eafffb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="4.5" fill="#D3A75C"/>
     </svg>
           <span class="brand__text">Jusoor<span class="brand__ai">AI</span></span>
@@ -265,6 +266,7 @@
         <ul class="site-foot__list">
           <li><a href="/about/">About Jusoor</a></li>
           <li><a href="/contact/">Contact &amp; support</a></li>
+          <li><a href="https://paypal.me/Jusoor1948" target="_blank" rel="noopener noreferrer">Support the work</a></li>
           <li><a href="/downloads/">Free downloads</a></li>
           <li><a href="/products/">All products</a></li>
         </ul>
