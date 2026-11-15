@@ -1,0 +1,9 @@
+{
+  "product": "giswind",
+  "channel": "stable",
+  "version": "1.0.12",
+  "manifestUrl": "https://jusoorai.com/updates/1.0.12/manifest.json",
+  "signatureUrl": "https://jusoorai.com/updates/1.0.12/manifest.sig",
+  "rollout": 0,
+  "revoked": []
+}
