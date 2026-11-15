@@ -94,28 +94,31 @@
   <h2>Five deterministic operations</h2>
   <ul class="bullets"><li>create_file, read_file, list_files, search_text and replace_text work with no model at all.</li><li>Each one reports exactly which operation it performed; anything outside that set is refused with a specific reason instead of being approximated.</li></ul>
 </section><section class="prose-block reveal">
+  <h2>Getting it</h2>
+  <ul class="bullets"><li>Windows 10 or 11, 64-bit. One executable, no installer.</li><li>Bring a model: a local llama-server or any OpenAI-compatible endpoint you configure in Settings. Without one the app opens and cannot work.</li><li>The build is unsigned, so SmartScreen warns on first run. The SHA-256 in SHA256SUMS.txt is how you verify the bytes instead of trusting the warning dialog.</li></ul>
+</section><section class="prose-block reveal">
   <h2>Safety by construction</h2>
   <ul class="bullets"><li>Writes require approval, a pre-edit snapshot is kept outside the project, and a byte-level read-back confirms the edit landed.</li><li>Workspace confinement rejects paths that escape the project, including .., symlinks and UNC forms.</li><li>Commands run with cwd locked to the workspace, with timeouts and 1 MB output caps.</li></ul>
 </section>
       <section class="prose-block prose-block--honest reveal">
         <h2>What is not there yet</h2>
-        <ul class="bullets bullets--honest"><li>No installer, no packaged build and no release binary yet: v0.1.0 is a source snapshot.</li><li>Reliability on larger tasks is not measured. Small, well-scoped tasks complete end to end; multi-file or long-running jobs often need steering.</li><li>Model quality is the main constraint. An October 2026 benchmark using the small local models in use scored 0 of 8.</li><li>Windows 10/11 is the tested platform. POSIX paths exist in the code but other platforms are untested.</li></ul>
+        <ul class="bullets bullets--honest"><li>The published file is an unsigned single executable: SmartScreen will warn, and there is no installer, no code-signing certificate and no auto-update.</li><li>Reliability on larger tasks is not measured. Small, well-scoped tasks complete end to end; multi-file or long-running jobs often need steering.</li><li>Model quality is the main constraint. An October 2026 benchmark using the small local models in use scored 0 of 8.</li><li>Windows 10/11 is the tested platform. POSIX paths exist in the code but other platforms are untested.</li></ul>
       </section>
     </div>
     <aside class="product-aside">
       <div class="aside-card">
         <h2 class="aside-card__h">At a glance</h2>
-        <dl class="facts"><div class="fact"><dt>Edition</dt><dd>Free, standalone product</dd></div><div class="fact"><dt>Platform</dt><dd>Windows 10 / 11</dd></div><div class="fact"><dt>Stage</dt><dd>Early alpha, source only</dd></div><div class="fact"><dt>Distribution</dt><dd>Run from source</dd></div></dl>
+        <dl class="facts"><div class="fact"><dt>Edition</dt><dd>Free, standalone product</dd></div><div class="fact"><dt>Platform</dt><dd>Windows 10 / 11</dd></div><div class="fact"><dt>Stage</dt><dd>Early alpha, first public build</dd></div><div class="fact"><dt>Distribution</dt><dd>Free download, v0.1.0-alpha.1</dd></div></dl>
       </div>
       <div class="aside-card aside-card--release">
         <h2 class="aside-card__h">Release</h2>
         <dl class="facts">
-          <div class="fact"><dt>Version</dt><dd>0.1.1 (draft)</dd></div>
-          <div class="fact"><dt>Platform</dt><dd>Windows 10/11</dd></div>
-          <div class="fact"><dt>Licence</dt><dd>Apache-2.0 (source)</dd></div>
+          <div class="fact"><dt>Version</dt><dd>0.1.0-alpha.1</dd></div>
+          <div class="fact"><dt>Platform</dt><dd>Windows 10/11 (64-bit)</dd></div>
+          <div class="fact"><dt>Licence</dt><dd>Apache-2.0</dd></div>
         </dl>
-        <p class="release-note">Installer and portable builds exist but are unsigned. The release chain — legal review, vulnerability route, download page — is not complete, so publication is not authorised.</p>
-        <a class="btn btn--ghost btn--full" href="/downloads/">Download status</a>
+        <p class="release-note">Published as a single unsigned executable. Windows SmartScreen warns on first run; verify the SHA-256 instead. Early alpha: small tasks complete end to end, larger ones need steering.</p>
+        <a class="btn btn--primary btn--full" href="https://github.com/gis1948/giscode-core-releases/releases/download/v0.1.0-alpha.1/GisCode.exe" rel="noopener">Download for Windows &middot; 0.1.0-alpha.1</a><p class="release-note"><a href="https://github.com/gis1948/giscode-core-releases/releases/download/v0.1.0-alpha.1/SHA256SUMS.txt" rel="noopener">SHA256SUMS.txt</a></p>
       </div>
       <div class="aside-card aside-card--note">
         <h2 class="aside-card__h">A note on status</h2>
