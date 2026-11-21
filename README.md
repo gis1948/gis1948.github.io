@@ -6,6 +6,7 @@ no framework, no build step on the host: GitHub Pages serves this branch as it
 is.
 
 **Website:** <https://jusoorai.com>
+**YouTube:** <https://www.youtube.com/@JusoorAI>
 **GisCode:** <https://jusoorai.com/products/giscode/>
 **Engineering status:** <https://jusoorai.com/status/>
 
