@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jusoorai.com/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://jusoorai.com/products/</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://jusoorai.com/status/</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://jusoorai.com/products/giscode/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://jusoorai.com/downloads/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://jusoorai.com/about/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://jusoorai.com/contact/</loc><changefreq>monthly</changefreq></url>
